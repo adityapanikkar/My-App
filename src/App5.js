@@ -6,27 +6,27 @@ class App5 extends Component{
         super()
         this.state = {
             loading:false,
-            character:{}
+            character:{ }
         }
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         this.setState({
             loading:true
         })
-        fetch("https://swapi.co/api/people/1")
-            .then(response => response.json())
-            .then(data => {
+            const response = await fetch("https://swapi.co/api/people/1")
+            const json = await response.json()
+
                 this.setState({
                     loading:false,
-                    character:data
+                    character:json
                 })
-                console.log(data)
-            })
+                console.log(json)
+            
     }
 
     render(){
-        const status = this.state.loading?"Loading Data":this.state.character.name
+        const status = this.state.loading?"Loading-Data":this.state.character.name
         return(
             <div>
                  <TWAppBar></TWAppBar>
