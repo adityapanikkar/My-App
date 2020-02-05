@@ -1,12 +1,13 @@
 import React from 'react'
 import { Button, TextField } from '@material-ui/core'
+import './FormComponent.css'
 
 function FormComponent(props){
     return(
-        <div>        
+        <div className="Login-Page">        
             <form>  
                 <input 
-                    value={props.data.firstName}
+                    value={props.firstName}
                     name="firstName"
                     type = "text" 
                     placeholder = "Username" 
@@ -14,16 +15,15 @@ function FormComponent(props){
                     />
                 <br/>
                 <input 
-                    value={props.data.lastName}
+                    value={props.lastName}
                     name="lastName"
-                    type = "text" 
+                    type = "password" 
                     placeholder = "Password" 
                     onChange={props.handleChange}
                     />
-                <h3>{props.data.firstName} {props.data.lastName}</h3>
                 <div className = 'button'>
-                <Button variant = "outlined" onClick = {props.handleSubmit}>
-                    LOGIN
+                <Button variant = "contained" style = {{fontWeight: 'bold', color: 'rgb(85, 93, 234)'}} onClick = {props.handleSubmit}>
+                    LOGIN 
                 </Button>
             </div>
                 <br/>
@@ -48,7 +48,7 @@ function FormComponent(props){
                         onChange={props.handleChange}
                     />
                 </label>Female
-                <h3>You are a {props.data.gender}</h3>
+                <br/>
                 <br/>
                 <label>Colour:</label>
                     <select 
@@ -61,7 +61,9 @@ function FormComponent(props){
                         <option value="White">White</option>
                         <option value="Orange">Orange</option>
                     </select>
-                    <h3>Fav Colour is {props.data.favColour}</h3>
+                    <p>{props.data.firstName} {props.data.lastName}</p>
+                    <p>Fav Colour is {props.data.favColour}</p>
+                    <p>You are a {props.data.gender}</p>
             </form>
         </div>
     )

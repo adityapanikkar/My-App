@@ -1,37 +1,44 @@
 import React, {Component} from 'react'
-import FormComponent from '../components/FormComponent'
-import TWAppBar from '../components/AppBar/TWAppBar'
+import FormComponent from '../components/FormComponent/FormComponent'
+import {useHistory} from 'react-router-dom'
 
-class Form extends Component {
+const history = useHistory()
+class FormContainer extends Component {
     constructor(){
         super()
         this.state = {
             firstName:"",
             lastName:"",
             gender:"",
-            favColour:"blue"
+            favColour:""
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event){
         this.setState({
         [event.target.name]:event.target.value
-    })
-
+        })
     }
+    
+    handleSubmit(){  
+        history.push("/homepage")
+    }
+
 
     render() {
         return(
             <div>
-                <TWAppBar></TWAppBar>
                 <FormComponent
                 handleChange={this.handleChange}
                 data={this.state}
+                handleSubmit={this.handleSubmit}
             />
             </div>
             
         )
     }
 }
-export default Form
+
+export default FormContainer
