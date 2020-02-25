@@ -1,23 +1,16 @@
 import React, {Component} from 'react'
 import HomePageComponent from '../components/HomePageComponent/HomePageComponent'
+import HomePageTableContainer from './HomePageTableContainer'
 
 
 class HomePageContainer extends Component{
 
-    constructor(){
-        super()
-        this.state={
-            homePage:true
-        }
-    }
 
 
 render(){
     return(
         <div>
-            <HomePageComponent
-                data={this.state}
-            />
+            <HomePageComponent/>
         </div>
     )
 }

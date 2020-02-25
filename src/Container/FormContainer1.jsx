@@ -6,18 +6,26 @@ import {useHistory} from 'react-router-dom'
 function FormContainer() {
     const history = useHistory()
 
-    const [firstName, setfirstname] = useState("")
-    const [lastName, setlastname] = useState("")
-    const [gender, setgender] = useState("")
+    const [firstName, setfirstName] = useState("")
+    const [lastName, setlastName] = useState("")
+    const [gender, setgender] = useState("male")
     const [favColour, setfavColour] = useState("")
 
 
     const handleChange = (event) =>{
 
-        setfirstname(event.target.value)
-        setlastname(event.target.value)
-        setgender(event.target.value)
-        setfavColour(event.target.value)
+        switch(event.target.name){
+            case "firstName":
+                return setfirstName(event.target.value);
+            case "lastName":
+                return setlastName(event.target.value);
+            case "gender":
+                return setgender(event.target.value);
+            case  "favColour":
+                return setfavColour(event.target.value);
+        }
+        
+        
     }
 
     //     this.setState({
@@ -35,7 +43,11 @@ function FormContainer() {
             <div>
                 <FormComponent
                 handleChange={handleChange}
-                data={firstName,lastName,gender,favColour}
+                data={{firstName,lastName,gender,favColour}}
+                //firstName={firstName}
+                //lastName={lastName}
+                //gender={gender}
+                //favColour={favColour}
                 handleSubmit={handleSubmit}
             />
             </div>

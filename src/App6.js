@@ -3,6 +3,7 @@ import TWAppBar from './components/AppBar/TWAppBar'
 import FormContainer from './Container/FormContainer1'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import HomePageContainer from './Container/HomePageContainer'
+import HomePageTableContainer from './Container/HomePageTableContainer'
 
 function App6()  {
     return(
@@ -16,6 +17,7 @@ function App6()  {
                     <Route path = "/homepage">
                         <TWAppBar/>
                         <HomePageContainer/>
+                        <HomePageTableContainer/>
                     </Route>
                 </Switch>
             </BrowserRouter>

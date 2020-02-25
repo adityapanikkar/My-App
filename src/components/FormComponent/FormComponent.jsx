@@ -7,15 +7,15 @@ function FormComponent(props){
         <div className="Login-Page">        
             <form>  
                 <input 
-                    value={props.firstName}
+                    value={props.data.firstName}
                     name="firstName"
                     type = "text" 
                     placeholder = "Username" 
                     onChange={props.handleChange}
                     />
                 <br/>
-                <input 
-                    value={props.lastName}
+                <input  
+                    value={props.data.lastName}
                     name="lastName"
                     type = "password" 
                     placeholder = "Password" 
@@ -52,7 +52,7 @@ function FormComponent(props){
                 <br/>
                 <label>Colour:</label>
                     <select 
-                        value={props.data.favColour} 
+                        value={props.favColour} 
                         onChange={props.handleChange} 
                         name="favColour">
 
